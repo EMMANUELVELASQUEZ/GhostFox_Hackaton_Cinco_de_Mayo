@@ -83,12 +83,12 @@ Escríbeme: [Mi correo:](velasquezemmanuel87@gmail.com)
 
 ---
 
-> 🦊 Apoyados por tecnología como **MetaMask**, **Ethereum**, **Solidity** y una **IA**.  
+> 🦊 Apoyados por tecnología como **MetaMask**, **Ethereum**, **Solidity**, **Bitso**,**Astar**,**Soneium** y una **IA**.  
 > 💰 Transformamos productos en experiencias digitales con estilo veracruzano.
 
 ---
 
-## 🌐 ¡Súmate al cambio de Veracruz desde CDMX HACKATON CINDO DE MAYO!
+## 🌐 ¡Súmate al cambio de Ethereum Veracruz desde CDMX en el HACKATON CINDO DE MAYO!
 
 
 
