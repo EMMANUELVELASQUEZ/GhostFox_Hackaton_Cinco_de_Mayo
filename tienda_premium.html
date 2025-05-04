@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tienda Estilizada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      margin: 0;
+    }
+
+    .productos-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 20px;
+      padding: 2rem;
+    }
+
+    .producto {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .producto:hover {
+      transform: translateY(-5px);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .producto-content {
+      padding: 1rem;
+    }
+
+    .producto h3 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .producto p {
+      color: #555;
+      margin: 0.3rem 0;
+    }
+
+    .producto .precio {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .producto a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .producto a:hover {
+      background: #0056b3;
+    }
+
+    .carrito {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #333;
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .carrito h2 {
+      margin: 0;
+    }
+
+    .carrito ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0;
+    }
+
+    .carrito ul li {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .carrito ul li button {
+      background: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      border-radius: 5px;
+    }
+
+    .carrito ul li button:hover {
+      background: #d32f2f;
+    }
+
+    .total {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .ticket-container {
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      display: none;
+    }
+
+    .ticket-container pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .ticket-btn {
+      display: block;
+      margin-top: 20px;
+      background: #28a745;
+      color: white;
+      padding: 0.8rem 1.2rem;
+      text-align: center;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    .ticket-btn:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <h1>Catálogo de Productos</h1>
+
+  <!-- Carrito de compras -->
+  <div class="carrito">
+    <h2>Carrito</h2>
+    <ul id="carritoItems"></ul>
+    <p class="total">Total: $0</p>
+    <a id="generarTicket" class="ticket-btn">Generar Ticket</a>
+  </div>
+
+  <!-- Contenedor del ticket -->
+  <div class="ticket-container" id="ticketContainer">
+    <h2>Ticket de Compra</h2>
+    <pre id="ticketContent"></pre>
+    <a id="imprimirTicket" class="ticket-btn">Imprimir Ticket</a>
+  </div>
+
+  <div class="productos-container" id="productosContainer"></div>
+
+  <script>
+    const productosRopa = [
+       { nombre: "Camisa", precio: 250, img: "camisa.jpg", tallas: ["S", "M", "L"], genero: "Hombre", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/detalles.html" },
+      { nombre: "Pantalón", precio: 400, img: "pantalon.jpg", tallas: ["30", "32", "34", "36"], genero: "Hombre", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/pantalon.html" },
+      { nombre: "Vestido", precio: 550, img: "vestido.jpeg", tallas: ["S", "M", "L"], genero: "Mujer", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/vestido.html" },
+      { nombre: "Boxer", precio: 236, img: "boxer.jpg", tallas: ["S", "M", "L"], genero: "Hombre", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/boxer.html" },
+      { nombre: "Playera Básica", precio: 199, img: "playera basica.jpeg", tallas: ["S", "M", "L"], genero: "Hombre", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/playera.html" },
+      { nombre: "Jeans Slim Fit", precio: 499, img: "jeans.webp", tallas: ["28", "30", "32", "34", "36"], genero: "Hombre", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/jeans.html" },
+      { nombre: "Vestido de Verano", precio: 599, img: "verano.jpeg", tallas: ["S", "M", "L"], genero: "Mujer", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/verano.html" },
+      { nombre: "Boxer Deportivo", precio: 179, img: "boxerdeportivo.jpeg", tallas: ["S", "M", "L"], genero: "Hombre", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/boxerdeportivo.html" },
+      { nombre: "Sudadera Hoodie", precio: 650, img: "sudadera.jpeg", tallas: ["S", "M", "L", "XL"], genero: "Unisex", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/sudaerahoddi.html" },
+      { nombre: "Short Casual", precio: 320, img: "short.jpeg", tallas: ["S", "M", "L", "XL"], genero: "Unisex", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/shortcasual.html" },
+      { nombre: "Blusa Elegante", precio: 420, img: "blusa.jpeg", tallas: ["S", "M", "L"], genero: "Mujer", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/blusaelegante.html" },
+      { nombre: "Chaqueta de Mezclilla", precio: 850, img: "chaqueta.jpeg", tallas: ["S", "M", "L", "XL"], genero: "Hombre", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/chaqueta.html" },
+      { nombre: "Polo Clásico", precio: 280, img: "polo.jpeg", tallas: ["S", "M", "L"], genero: "Hombre", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/polo.html" },
+      { nombre: "Falda Plisada", precio: 370, img: "Plisada.jpeg", tallas: ["S", "M", "L"], genero: "Mujer", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/faldaplisada.html" },
+      { nombre: "Leggings Deportivos", precio: 310, img: "leggins.jpeg", tallas: ["S", "M", "L"], genero: "Mujer", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/legginsd.html" }
+    ];
+
+    const productosAbarrotes = [
+      { nombre: "Arroz", precio: 40, img: "arroz.webp", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/arroz.html" },
+      { nombre: "Frijol", precio: 35, img: "frijol.jpg", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/frijol.html" },
+      { nombre: "Aceite", precio: 70, img: "aceite.webp", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/aceite.html" },
+      { nombre: "Arroz Integral", precio: 45, img: "integral.jpeg", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/arrozintegral.html" },
+      { nombre: "Frijol Negro", precio: 38, img: "negro.jpeg", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/frijolnegro.html" },
+      { nombre: "Aceite de Oliva", precio: 95, img: "oliva.jpeg", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/aceiteoliva.html" },
+      { nombre: "Azúcar Morena", precio: 32, img: "morena.jpeg", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/morena.html" },
+      { nombre: "Sal de Mesa", precio: 18, img: "mesa.jpeg", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/saldemesa.html" },
+      { nombre: "Harina de Trigo", precio: 50, img: "trigo.jpeg", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/harinadetrigo.html" },
+      { nombre: "Leche Entera", precio: 28, img: "entera.jpeg", detallesUrl: "file:///Users/emmanuelvelasquez/Desktop/Semestre%204%20TIOR/lecheentera.html" }
+    ];
+
+    const productos = [...productosRopa, ...productosAbarrotes];
+
+    const contenedor = document.getElementById("productosContainer");
+    const carritoItems = document.getElementById("carritoItems");
+    const totalElement = document.querySelector(".total");
+    const generarTicketBtn = document.getElementById("generarTicket");
+    const ticketContainer = document.getElementById("ticketContainer");
+    const ticketContent = document.getElementById("ticketContent");
+    const imprimirTicketBtn = document.getElementById("imprimirTicket");
+
+    let carrito = [];
+
+    productos.forEach(prod => {
+      const div = document.createElement("div");
+      div.className = "producto";
+      div.innerHTML = `
+        <img src="${prod.img}" alt="${prod.nombre}" />
+        <div class="producto-content">
+          <h3>${prod.nombre}</h3>
+          <p class="precio">$${prod.precio}</p>
+          ${prod.tallas ? `<p><strong>Tallas:</strong> ${prod.tallas.join(", ")}</p>` : ""}
+          ${prod.genero ? `<p><strong>Género:</strong> ${prod.genero}</p>` : ""}
+          <a href="${prod.detallesUrl}" target="_blank">Ver más</a>
+          <button class="agregar" data-id="${prod.nombre}" data-precio="${prod.precio}">Añadir al carrito</button>
+        </div>
+      `;
+      contenedor.appendChild(div);
+    });
+
+    contenedor.addEventListener("click", function(event) {
+      if (event.target && event.target.matches("button.agregar")) {
+        const nombre = event.target.getAttribute("data-id");
+        const precio = parseFloat(event.target.getAttribute("data-precio"));
+        
+        const producto = { nombre, precio };
+        carrito.push(producto);
+        actualizarCarrito();
+      }
+    });
+
+    function actualizarCarrito() {
+      carritoItems.innerHTML = '';
+      let total = 0;
+      
+      carrito.forEach((item, index) => {
+        total += item.precio;
+        const li = document.createElement("li");
+        li.innerHTML = `
+          ${item.nombre} - $${item.precio.toFixed(2)}
+          <button onclick="eliminarDelCarrito(${index})">Eliminar</button>
+        `;
+        carritoItems.appendChild(li);
+      });
+
+      totalElement.innerText = `Total: $${total.toFixed(2)}`;
+    }
+
+    function eliminarDelCarrito(index) {
+      carrito.splice(index, 1);
+      actualizarCarrito();
+    }
+
+    // Generar el ticket
+    generarTicketBtn.addEventListener("click", function() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      let ticket = "---- TICKET DE COMPRA ----\n\n";
+      carrito.forEach(item => {
+        ticket += `${item.nombre} - $${item.precio.toFixed(2)}\n`;
+      });
+      ticket += `\nTotal: $${carrito.reduce((acc, item) => acc + item.precio, 0).toFixed(2)}\n\n`;
+      ticket += "Gracias por tu compra!";
+
+      ticketContent.textContent = ticket;
+      ticketContainer.style.display = "block";
+    });
+
+    // Imprimir el ticket
+    imprimirTicketBtn.addEventListener("click", function() {
+      const imprimirContenido = ticketContent.textContent;
+      const ventanaImpresion = window.open('', '', 'width=800,height=600');
+      ventanaImpresion.document.write('<pre>' + imprimirContenido + '</pre>');
+      ventanaImpresion.document.close();
+      ventanaImpresion.print();
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GhostFox AI</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #0D1117;
+      font-family: 'Orbitron', sans-serif;
+      color: #00eaff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px #00eaff); }
+      50% { transform: scale(1.05); filter: drop-shadow(0 0 20px #00eaff); }
+    }
+
+    .chat-container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid #00eaff;
+      padding: 2rem;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 650px;
+      box-shadow: 0 0 20px #00eaff55;
+    }
+
+    .chat-box {
+      height: 250px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+      background: #0D1117;
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid #00eaff44;
+      font-size: 0.95rem;
+    }
+
+    .chat-box p {
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 10px;
+      background: #1c1f26;
+      color: #00eaff;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.8rem 2rem;
+      background: #00eaff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #00bcd4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo SVG (sin imagen) -->
+  <svg class="logo" viewBox="0 0 200 200">
+    <polygon points="100,10 190,80 100,180 10,80" fill="#00eaff" stroke="#000" stroke-width="3"/>
+    <polygon points="100,10 130,60 70,60" fill="#00c2ba" stroke="#000" stroke-width="3"/>
+    <circle cx="70" cy="100" r="7" fill="#000"/>
+    <circle cx="130" cy="100" r="7" fill="#000"/>
+    <circle cx="100" cy="140" r="5" fill="#000"/>
+  </svg>
+
+  <div class="chat-container">
+    <div class="chat-box" id="chatBox">
+      <p><strong>Ghost IA:</strong> Hola, soy tu IA conectada🤖. Pregúntame por los mejores productos que tengo. 😎</p>
+    </div>
+    <input type="text" id="userInput" placeholder="¿Cuál es el mejor producto de limpieza, cocina, etc...?">
+    <button onclick="responder()">Enviar</button>
+  </div>
+
+  <script>
+    function responder() {
+      const input = document.getElementById('userInput');
+      const chatBox = document.getElementById('chatBox');
+      const mensaje = input.value.toLowerCase();
+
+      let respuesta = `
+        🔥 Aquí tienes los 5 productos más chingones según tu interés:<br><br>
+        <strong>🧼 Limpieza:</strong> Spray UltraPro Antibacterial 3000<br>
+        <strong>🍳 Cocina:</strong> Sartén Antiadherente con Sensor Térmico<br>
+        <strong>🧸 Juguetes:</strong> Robot Inteligente con Voz y Movimiento<br>
+        <strong>💡 Electrónica:</strong> Smart Speaker Holográfico CryptoSound<br>
+        <strong>🛋️ Hogar:</strong> Luz LED Ambiental RGB con Sensor de Ritmo
+      `;
+
+      chatBox.innerHTML += `<p><strong>Tú:</strong> ${input.value}</p>`;
+      chatBox.innerHTML += `<p><strong>CryptoFox IA:</strong> ${respuesta}</p>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+      input.value = "";
+    }
+  </script>
+
+</body>
+</html>

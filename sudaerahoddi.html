@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Producto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    /* Contenedor principal */
+    .producto-detalle {
+      width: 100%;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .producto-imagen {
+      width: 40%;
+      padding-right: 20px;
+    }
+
+    .producto-imagen img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .producto-info {
+      width: 55%;
+      padding-left: 20px;
+    }
+
+    .producto-info h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .producto-info p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .producto-info .precio {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ff6600;
+      margin-bottom: 20px;
+    }
+
+    .producto-info .descripcion {
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .producto-info .boton-comprar {
+      display: inline-block;
+      background-color: #ff6600;
+      color: white;
+      padding: 12px 30px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .producto-info .boton-comprar:hover {
+      background-color: #e55d00;
+    }
+
+    /* Estilos para el contenedor de otras imágenes del producto */
+    .imagenes-adicionales {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .imagenes-adicionales img {
+      width: 48%;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .imagenes-adicionales img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 1rem;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="producto-detalle">
+    <div class="producto-imagen">
+      <img src="sudadera.jpeg" alt="Producto">
+    </div>
+    <div class="producto-info">
+      <h1>Sudadera Hoddi </h1>
+      <p><strong>Marca:</strong> Tienda Roching</p>
+      <p><strong>Disponible:</strong> En stock</p>
+      <p class="precio">$650.00</p>
+      <p class="descripcion">🧥 Sudadera Hoodie Unisex Premium
+Comodidad total con un diseño moderno y versátil.
+Tejido suave, cálido y resistente, perfecto para cualquier temporada.
+Ideal para un look casual, deportivo o urbano. ¡Luce increíble y siéntete cómodo en todo momento! 🔥</p>
+      <a href="https://wa.me/5214722030716" class="boton-comprar" target="_blank">Comprar Ahora</a>
+      
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Tienda Mixta Roching - Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>

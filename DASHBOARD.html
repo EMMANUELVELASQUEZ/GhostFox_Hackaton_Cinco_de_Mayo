@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cripto Dashboard GhostFox - Bitcoin y Ethereum</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .crypto {
+      background-color: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    .crypto h2 {
+      margin-bottom: 10px;
+      color: #facc15;
+    }
+    .price {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #34d399;
+    }
+    canvas {
+      background-color: #0f172a;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dashboard de Criptomonedas</h1>
+  <div class="container">
+
+    <div class="crypto" id="bitcoin">
+      <h2>Bitcoin (BTC)</h2>
+      <div class="price" id="btc-price">Cargando precio...</div>
+      <canvas id="btc-chart" width="400" height="200"></canvas>
+    </div>
+
+    <div class="crypto" id="ethereum">
+      <h2>Ethereum (ETH)</h2>
+      <div class="price" id="eth-price">Cargando precio...</div>
+      <canvas id="eth-chart" width="400" height="200"></canvas>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    Datos en tiempo real desde CoinGecko. © 2025
+  </div>
+
+  <script>
+    async function fetchPriceAndChart(coinId, priceElementId, chartElementId) {
+      const priceUrl = `https://api.coingecko.com/api/v3/simple/price?ids=${coinId}&vs_currencies=usd`;
+      const chartUrl = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=usd&days=7`;
+
+      const priceRes = await fetch(priceUrl);
+      const priceData = await priceRes.json();
+      const price = priceData[coinId].usd;
+      document.getElementById(priceElementId).textContent = `$${price.toLocaleString()} USD`;
+
+      const chartRes = await fetch(chartUrl);
+      const chartData = await chartRes.json();
+      const labels = chartData.prices.map(p => {
+        const date = new Date(p[0]);
+        return date.toLocaleDateString('es-ES', { weekday: 'short', day: 'numeric' });
+      });
+      const prices = chartData.prices.map(p => p[1]);
+
+      new Chart(document.getElementById(chartElementId).getContext('2d'), {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: `${coinId.toUpperCase()} (últimos 7 días)`,
+            data: prices,
+            fill: false,
+            borderColor: coinId === 'bitcoin' ? '#f59e0b' : '#8b5cf6',
+            tension: 0.3
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              ticks: {
+                color: '#94a3b8'
+              }
+            },
+            x: {
+              ticks: {
+                color: '#94a3b8'
+              }
+            }
+          },
+          plugins: {
+            legend: {
+              labels: {
+                color: '#f1f5f9'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    fetchPriceAndChart('bitcoin', 'btc-price', 'btc-chart');
+    fetchPriceAndChart('ethereum', 'eth-price', 'eth-chart');
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Web3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      width: 100%;
+      max-width: 420px;
+      animation: fadeIn 1s ease;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    .wallet-input {
+      margin-bottom: 25px;
+    }
+
+    .wallet-input label {
+      font-weight: 500;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .wallet-input input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      background: #f0f0f0;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .login-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .login-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      color: #333;
+      cursor: pointer;
+      border: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .login-btn img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .metamask-btn {
+      background: #f6851b;
+      color: white;
+    }
+
+    .metamask-btn:hover {
+      background: #e2761b;
+    }
+
+    .github-btn {
+      background: #24292e;
+      color: white;
+    }
+
+    .github-btn:hover {
+      background: #1b1f23;
+    }
+
+    .google-btn {
+      background: #ffffff;
+      color: #444;
+      border: 1px solid #ccc;
+    }
+
+    .google-btn:hover {
+      background: #f5f5f5;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Iniciar con Web3</h1>
+
+    <div class="wallet-input">
+      <label for="wallet">Pega tu llave pública</label>
+      <input type="text" id="wallet" placeholder="0x..." />
+    </div>
+
+    <div class="login-options">
+      <button class="login-btn metamask-btn">
+        <img src="https://cryptologos.cc/logos/metamask-fox-logo.png" alt="Metamask" />
+        Conectar con Metamask
+      </button>
+
+      <button class="login-btn github-btn">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+        Iniciar con GitHub
+      </button>
+
+      <button class="login-btn google-btn">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" />
+        Iniciar con Google
+      </button>
+    </div>
+  </div>
+
+</body>
+</html>

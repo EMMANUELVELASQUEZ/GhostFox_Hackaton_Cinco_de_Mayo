@@ -1,0 +1,14 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.18;
+
+contract ProductRecommender {
+    string[5] public topProducts;
+
+    function updateTopProducts(string[5] memory newProducts) public {
+        topProducts = newProducts;
+    }
+
+    function getTopProducts() public view returns (string[5] memory) {
+        return topProducts;
+    }
+}

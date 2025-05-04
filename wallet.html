@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>  <div class="logo-container">
+    <svg id="cryptoFox" viewBox="0 0 200 200" width="100" height="100">
+      <polygon points="100,10 190,80 100,180 10,80" fill="#00fff7" stroke="#000" stroke-width="3"/>
+      <polygon points="100,10 130,60 70,60" fill="#00c2ba" stroke="#000" stroke-width="3"/>
+      <circle cx="70" cy="100" r="7" fill="#000"/>
+      <circle cx="130" cy="100" r="7" fill="#000"/>
+      <circle cx="100" cy="140" r="5" fill="#000"/>
+    </svg>
+  </div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallet - Ingreso Seguro</title>
+  <style>
+    /* Estilos globales */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #7c4dff, #00bcd4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    /* Contenedor principal */
+    .wallet-container {
+      width: 420px;
+      background: rgba(0, 0, 0, 0.85);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      transform: scale(0.98);
+      transition: all 0.3s ease;
+    }
+
+    .wallet-container:hover {
+      transform: scale(1);
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #fff;
+      margin-bottom: 20px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .wallet-input {
+      margin-bottom: 30px;
+    }
+
+    .wallet-input label {
+      font-size: 16px;
+      color: #bbb;
+      margin-bottom: 8px;
+      display: block;
+      font-weight: 500;
+    }
+
+    .wallet-input input {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: 2px solid #00bcd4;
+      background: #333;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .wallet-input input:focus {
+      border-color: #7c4dff;
+      background: #222;
+      outline: none;
+    }
+
+    /* Botón de inicio de sesión */
+    .login-btn {
+      width: 100%;
+      padding: 15px;
+      font-size: 20px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ff4081, #ff80ab);
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.4s ease;
+    }
+
+    .login-btn:hover {
+      background: linear-gradient(135deg, #ff80ab, #ff4081);
+      transform: scale(1.05);
+    }
+
+    .login-btn:active {
+      transform: scale(1);
+    }
+
+    /* Enlaces */
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .footer a {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Animaciones */
+    @keyframes bounceIn {
+      0% {
+        transform: translateY(-30px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .wallet-container {
+      animation: bounceIn 0.8s ease-out;
+    }
+
+    /* Para enlaces secundarios en el pie de página */
+    .footer-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .footer-links a {
+      color: #fff;
+      font-size: 14px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ff4081;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wallet-container">
+    <h2>¡Accede a tu Wallet!</h2>
+    <p>Introduce tu clave de acceso para entrar a tu wallet.</p>
+
+    <!-- Campo de ingreso de la clave -->
+    <div class="wallet-input">
+      <label for="wallet-key">Número de Clave</label>
+      <input type="text" id="wallet-key" placeholder="Introduce tu clave de wallet">
+    </div>
+
+    <!-- Botón de acceso -->
+    <button class="login-btn" onclick="login()">Acceder</button>
+
+    <!-- Enlaces de pie de página -->
+    <div class="footer">
+      <p>¿Olvidaste tu clave? <a href="#">Recuperarla</a></p>
+      <div class="footer-links">
+        <a href="https://www.ejemplo.com/acerca-de">Acerca de</a>
+        <a href="https://www.ejemplo.com/contacto">Contacto</a>
+        <a href="https://www.ejemplo.com/terminos">Términos</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const key = document.getElementById('wallet-key').value;
+      if (key) {
+        alert('Accediendo con la clave: ' + key);
+        // Redirigir a otra página
+        window.location.href = "https://www.ejemplo.com/dashboard"; // Aquí pones el enlace de tu sitio.
+      } else {
+        alert('Por favor, ingresa tu clave de wallet');
+      }
+    }
+  </script>
+
+</body>
+</html>
+  <div class="logo-container">
+    <svg id="cryptoFox" viewBox="0 0 200 200" width="100" height="100">
+      <polygon points="100,10 190,80 100,180 10,80" fill="#00fff7" stroke="#000" stroke-width="3"/>
+      <polygon points="100,10 130,60 70,60" fill="#00c2ba" stroke="#000" stroke-width="3"/>
+      <circle cx="70" cy="100" r="7" fill="#000"/>
+      <circle cx="130" cy="100" r="7" fill="#000"/>
+      <circle cx="100" cy="140" r="5" fill="#000"/>
+    </svg>
+  </div>

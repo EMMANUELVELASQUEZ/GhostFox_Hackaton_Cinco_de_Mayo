@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contáctanos con Estilo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(ellipse at top, #0f0c29, #302b63, #24243e);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      width: 420px;
+      padding: 40px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 0 40px #00fff7;
+      text-align: center;
+    }
+
+    .container h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00fff7;
+      text-shadow: 0 0 15px #00fff7;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background: rgba(255, 255, 255, 0.08);
+      border: 2px solid #00fff7;
+      border-radius: 12px;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.4s ease;
+    }
+
+    input:focus, textarea:focus {
+      background: rgba(0, 255, 247, 0.1);
+      box-shadow: 0 0 12px #00fff7;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(145deg, #00fff7, #00c2ba);
+      border: none;
+      border-radius: 15px;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00fff7, 0 0 30px #00c2ba inset;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(145deg, #00c2ba, #00fff7);
+    }
+
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: url('https://media.giphy.com/media/l0MYKDrj1g1F1KSeY/giphy.gif') repeat;
+      background-size: cover;
+      z-index: 0;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .logo-follow {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/6/6f/Ethereum-icon-purple.svg'); /* ← AQUÍ VA TU LOGO */
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      pointer-events: none;
+      z-index: 5;
+      transition: transform 0.1s ease;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stars"></div>
+
+  <!-- Logo que sigue el cursor -->
+  <div class="logo-follow" id="logo"></div>
+
+  <!-- Contenedor del formulario -->
+  <div class="container">
+    <h2>Contáctanos</h2>
+    <form onsubmit="event.preventDefault(); alert('🚀 ¡Mensaje enviado, campeón!');">
+      <input type="text" placeholder="Tu nombre" required />
+      <input type="email" placeholder="Tu correo electrónico" required />
+      <textarea placeholder="Tu mensaje poderoso..." rows="4" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <script>
+    const logo = document.getElementById("logo");
+    document.addEventListener("mousemove", (e) => {
+      logo.style.left = `${e.clientX - 40}px`;
+      logo.style.top = `${e.clientY - 40}px`;
+    });
+  </script>
+
+</body>
+</html>
+
+
