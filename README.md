@@ -67,6 +67,7 @@ Escríbeme: [Mi correo:](velasquezemmanuel87@gmail.com)
 ---
 
 <h1 align="center" style="font-size: 42px;">🐬 ETHEREUM VERACRUZ🐬🔥</h1>
+![ETEREUMVERACRUZ](https://github.com/user-attachments/assets/09e81f31-9cb3-4f9e-9ed9-6888a1cd88bd)
 
 <p align="center" style="font-size: 18px;">
 💎 Revolucionando el comercio digital desde el puerto.
