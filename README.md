@@ -30,7 +30,8 @@ Bienvenido a un proyecto que une el ecommerce moderno con el poder de las cripto
 Cuando un usuario pregunta algo sobre un producto, el sistema analiza la consulta y responde con las **5 mejores opciones disponibles**, filtradas por relevancia, tendencia y experiencia previa del usuario.
 
 ---
-[![YouTube Logo](https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png)](h[ttps://www.tu-link-aqui.com](https://www.youtube.com/watch?v=KUnvsR1lEyg))
+[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)]([https://www.tu-link-aqui.com](https://www.youtube.com/watch?v=KUnvsR1lEyg))
+
 
 ---
 ## 📸 Vista previa del proyecto
