@@ -69,13 +69,13 @@ Escríbeme: [Mi correo:](velasquezemmanuel87@gmail.com)
 
 ## 👊 Nuestro equipo
 
-| Nombre                      | Rol                               | 
-|-----------------------------|-----------------------------------|
-| **Emmanuel Velásquez Gerón**|  Developer                        | 
-| **Hari jaramillo Arellano** |  Project manager                  |
-| **Jessica Castellanos**     |  Marketing Comunity Manager       | 
-| **Brandon Linares Clderon** |  Presentador                      | 
-| **Miriam**                  |  Presentadora                     | 
+| Nombre                                         | Rol                               | 
+|------------------------------------------------|-----------------------------------|
+| **Emmanuel Velásquez Gerón**                   |  Developer                        | 
+| **Hari jaramillo Arellano**                    |  Project manager                  |
+| **Jessica Jessica Karina Castellanos Cruz**    |  Marketing Comunity Manager       | 
+| **Brandon Linares Clderon**                    |  Presentador                      | 
+| **Miriam Miriam Citlali Ramírez Cuahtecontzi** |  Presentadora                     | 
 
 
 ---
