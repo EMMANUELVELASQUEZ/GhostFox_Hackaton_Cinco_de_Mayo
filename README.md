@@ -92,7 +92,7 @@ Escríbeme: [Mi correo:](velasquezemmanuel87@gmail.com)
 
 ---
 
-## 🌐 ¡Súmate al cambio de Ethereum Veracruz desde CDMX en el HACKATON CINDO DE MAYO!
+## 🌐 ¡Súmate al cambio de Ethereum Veracruz desde CDMX en el HACKATON CINCO DE MAYO!
 
 
 
