@@ -62,7 +62,7 @@ Escríbeme: [Mi correo:](velasquezemmanuel87@gmail.com)
 <h1 align="center" style="font-size: 42px;">🐬 ETHEREUM VERACRUZ🐬🔥</h1>
 
 <p align="center" style="font-size: 18px;">
-💎 Revolucionando el comercio digital desde el puerto con blockchain, inteligencia artificial y flow cripto.
+💎 Revolucionando el comercio digital desde el puerto.
 </p>
 
 ---
