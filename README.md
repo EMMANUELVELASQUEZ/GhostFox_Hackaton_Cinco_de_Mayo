@@ -85,7 +85,7 @@ Escríbeme: [Mi correo:](velasquezemmanuel87@gmail.com)
 
 ---
 
-## 🌐 ¡Súmate al cambio de Veracruz dese CDMX HACKATON CINDO DE MAYO!
+## 🌐 ¡Súmate al cambio de Veracruz desde CDMX HACKATON CINDO DE MAYO!
 
 
 
