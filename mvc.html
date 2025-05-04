@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Conversor Cripto Dinámico</title>
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .container {
+      background: linear-gradient(135deg, #ff9800 60%, #2196f3 100%);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px #0008;
+      padding: 32px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      align-items: center;
+      width: 400px;
+    }
+    h2 {
+      margin-bottom: 0;
+      color: #fff;
+      text-shadow: 1px 1px 10px #0008;
+      text-align: center;
+    }
+    label {
+      color: #fff;
+      font-weight: bold;
+      align-self: flex-start;
+      margin-top: 10px;
+    }
+    input[type="number"], select {
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: none;
+      width: 100%;
+      font-size: 1.1rem;
+      margin: 8px 0 18px 0;
+      box-sizing: border-box;
+    }
+    .crypto-box {
+      background: #111a;
+      border-radius: 10px;
+      padding: 18px 24px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: #fff;
+      box-shadow: 0 2px 8px #0005;
+    }
+    .crypto-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #ff9800;
+    }
+    .crypto-value {
+      font-size: 1.1rem;
+      color: #2196f3;
+      margin-bottom: 6px;
+    }
+    .crypto-result {
+      font-size: 1.3rem;
+      color: #fff;
+      font-weight: bold;
+      min-height: 1.5em;
+    }
+    button {
+      background-color: #ff9800;
+      border: none;
+      border-radius: 8px;
+      color: #0a0a0a;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 12px 0;
+      width: 100%;
+      cursor: pointer;
+      box-shadow: 0 4px 12px #ff9800aa;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #e67e22;
+      box-shadow: 0 6px 18px #e67e2299;
+    }
+    .confirmation {
+      margin-top: 12px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #00ff99;
+      min-height: 1.5em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Conversor de Pesos a Criptomonedas</h2>
+    <label for="mxn">Cantidad en pesos mexicanos (MXN):</label>
+    <input type="number" id="mxn" min="1" value="1000" />
+
+    <label for="crypto-select">Selecciona la criptomoneda a recibir:</label>
+    <select id="crypto-select" aria-label="Selecciona criptomoneda">
+      <option value="BTC">Bitcoin (BTC)</option>
+      <option value="ETH">Ethereum (ETH)</option>
+    </select>
+
+    <div class="crypto-box" id="btc-box">
+      <div class="crypto-title">Bitcoin (BTC)</div>
+      <div class="crypto-value" id="btc-price">Cargando...</div>
+      <div class="crypto-result" id="btc-result">-</div>
+    </div>
+
+    <div class="crypto-box" id="eth-box">
+      <div class="crypto-title">Ethereum (ETH)</div>
+      <div class="crypto-value" id="eth-price">Cargando...</div>
+      <div class="crypto-result" id="eth-result">-</div>
+    </div>
+
+    <button id="exchange-btn">Confirmar intercambio</button>
+    <div class="confirmation" id="confirmation-msg"></div>
+  </div>
+
+  <script>
+    const mxnInput = document.getElementById('mxn');
+    const cryptoSelect = document.getElementById('crypto-select');
+    const btcPriceDiv = document.getElementById('btc-price');
+    const ethPriceDiv = document.getElementById('eth-price');
+    const btcResultDiv = document.getElementById('btc-result');
+    const ethResultDiv = document.getElementById('eth-result');
+    const exchangeBtn = document.getElementById('exchange-btn');
+    const confirmationMsg = document.getElementById('confirmation-msg');
+
+    let btcPrice = 0, ethPrice = 0;
+
+    async function fetchPrices() {
+      try {
+        const [btcRes, ethRes, usdMxnRes] = await Promise.all([
+          fetch('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT'),
+          fetch('https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT'),
+          fetch('https://api.binance.com/api/v3/ticker/price?symbol=USDTMXN')
+        ]);
+
+        const btcData = await btcRes.json();
+        const ethData = await ethRes.json();
+        const usdMxnData = await usdMxnRes.json();
+
+        const btcUsd = parseFloat(btcData.price);
+        const ethUsd = parseFloat(ethData.price);
+        const usdMxn = parseFloat(usdMxnData.price);
+
+        btcPrice = btcUsd * usdMxn;
+        ethPrice = ethUsd * usdMxn;
+
+        btcPriceDiv.textContent = `1 BTC = $${btcPrice.toLocaleString('es-MX', { maximumFractionDigits: 2 })} MXN`;
+        ethPriceDiv.textContent = `1 ETH = $${ethPrice.toLocaleString('es-MX', { maximumFractionDigits: 2 })} MXN`;
+
+        updateResults();
+      } catch (error) {
+        btcPriceDiv.textContent = 'Error al cargar precio';
+        ethPriceDiv.textContent = 'Error al cargar precio';
+        btcResultDiv.textContent = '-';
+        ethResultDiv.textContent = '-';
+        console.error('Error fetching prices:', error);
+      }
+    }
+
+    function updateResults() {
+      const mxn = parseFloat(mxnInput.value);
+      if (btcPrice > 0 && ethPrice > 0 && mxn > 0) {
+        const btcAmount = mxn / btcPrice;
+        const ethAmount = mxn / ethPrice;
+        btcResultDiv.textContent = `${mxn} MXN ≈ ${btcAmount.toFixed(8)} BTC`;
+        ethResultDiv.textContent = `${mxn} MXN ≈ ${ethAmount.toFixed(8)} ETH`;
+        updateSelectedResult();
+      } else {
+        btcResultDiv.textContent = '-';
+        ethResultDiv.textContent = '-';
+        confirmationMsg.textContent = '';
+      }
+    }
+
+    function updateSelectedResult() {
+      const selected = cryptoSelect.value;
+      const mxn = parseFloat(mxnInput.value);
+      if (mxn <= 0) {
+        confirmationMsg.textContent = '';
+        return;
+      }
+      let amount = 0;
+      if (selected === 'BTC' && btcPrice > 0) {
+        amount = mxn / btcPrice;
+      } else if (selected === 'ETH' && ethPrice > 0) {
+        amount = mxn / ethPrice;
+      }
+      confirmationMsg.textContent = `Seleccionaste ${selected} y recibirás aproximadamente ${amount.toFixed(8)} ${selected}`;
+    }
+
+    mxnInput.addEventListener('input', () => {
+      updateResults();
+      confirmationMsg.textContent = '';
+    });
+    cryptoSelect.addEventListener('change', () => {
+      updateSelectedResult();
+      confirmationMsg.textContent = '';
+    });
+
+    exchangeBtn.addEventListener('click', () => {
+      const mxn = parseFloat(mxnInput.value);
+      if (isNaN(mxn) || mxn <= 0) {
+        alert('Por favor ingresa una cantidad válida en pesos.');
+        return;
+      }
+      const selected = cryptoSelect.value;
+      let amount = 0;
+      if (selected === 'BTC') {
+        amount = mxn / btcPrice;
+      } else if (selected === 'ETH') {
+        amount = mxn / ethPrice;
+      }
+      if (amount <= 0) {
+        alert('No se pudo calcular la cantidad de criptomoneda.');
+        return;
+      }
+      alert(`Intercambio confirmado:\n${mxn.toLocaleString('es-MX')} MXN → ${amount.toFixed(8)} ${selected}`);
+      confirmationMsg.textContent = '';
+    });
+
+    fetchPrices();
+    setInterval(fetchPrices, 60000);
+  </script>
+</body>
+</html>
