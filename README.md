@@ -80,9 +80,9 @@ Escríbeme: [Mi correo:](velasquezemmanuel87@gmail.com)
 |------------------------------------------------|-----------------------------------|
 | **Emmanuel Velásquez Gerón**                   |  Developer                        | 
 | **Hari jaramillo Arellano**                    |  Project manager                  |
-| **Jessica Jessica Karina Castellanos Cruz**    |  Marketing Comunity Manager       | 
+| **Jessica Karina Castellanos Cruz**            |  Marketing Comunity Manager       | 
 | **Brandon Linares Clderon**                    |  Presentador                      | 
-| **Miriam Miriam Citlali Ramírez Cuahtecontzi** |  Presentadora                     | 
+| **Miriam Citlali Ramírez Cuahtecontzi**        |  Presentadora                     | 
 
 
 ---
