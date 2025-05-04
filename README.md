@@ -1,7 +1,7 @@
 <img width="415" alt="image" src="https://github.com/user-attachments/assets/75c13283-1a3c-4b79-b8d0-2ebd2c68b597" />
 
 
- 🔥 Tienda GhostFox  🔥 - Comercio Digital del Futuro
+## 🔥 Tienda GhostFox  🔥 - Comercio Digital del Futuro
 
 Bienvenido a un proyecto que une el ecommerce moderno con el poder de las criptomonedas. Esta plataforma permite a los usuarios comprar productos, intercambiar criptomonedas por dinero digital real y obtener recomendaciones inteligentes de productos gracias a un sistema de IA integrado.
 
