@@ -32,6 +32,7 @@ Cuando un usuario pregunta algo sobre un producto, el sistema analiza la consult
 ---
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)]([https://www.tu-link-aqui.com](https://www.youtube.com/watch?v=KUnvsR1lEyg))
 
+(https://www.youtube.com/watch?v=KUnvsR1lEyg)
 
 ---
 ## 📸 Vista previa del proyecto
