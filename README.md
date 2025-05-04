@@ -29,8 +29,16 @@ Cuando un usuario pregunta algo sobre un producto, el sistema analiza la consult
 ---
 
 ## 📸 Vista previa del proyecto
-
+<img width="1280" alt="image" src="https://github.com/user-attachments/assets/36535bd1-faab-4e1b-80d4-4843d468f9f5" />
+<img width="1280" alt="image" src="https://github.com/user-attachments/assets/5774c26f-af05-4d4a-816a-852ed771bf21" />
 <img width="1280" alt="image" src="https://github.com/user-attachments/assets/1a91732f-1841-41a4-82fb-109ce76b5e17" />
+<img width="1280" alt="image" src="https://github.com/user-attachments/assets/3a462390-6d33-44bc-8781-9cee40de50ce" />
+<img width="1280" alt="image" src="https://github.com/user-attachments/assets/60817aac-35c2-4928-83aa-4fbb6e6a6cf1" />
+<img width="1280" alt="image" src="https://github.com/user-attachments/assets/00fd56c5-ab92-40a0-b8a9-74b72fecfdcb" />
+<img width="1280" alt="image" src="https://github.com/user-attachments/assets/8805c1cf-4e41-4764-a9f2-61d322b45877" />
+<img width="1280" alt="image" src="https://github.com/user-attachments/assets/102ab5c2-d82d-40f6-afb3-aaea6aebb628" />
+<img width="1280" alt="image" src="https://github.com/user-attachments/assets/e2815b90-d05a-4b07-bc62-c17921efddd6" />
+<img width="1280" alt="image" src="https://github.com/user-attachments/assets/ce2524a1-b345-44f2-8769-b66fcfc73355" />
 
 
 ---
@@ -61,13 +69,13 @@ Escríbeme: [Mi correo:](velasquezemmanuel87@gmail.com)
 
 ## 👊 Nuestro equipo
 
-| Nombre                        | Rol                               | 
-|-------------------------------|-----------------------------------|
-| **[Emmanuel Velásquez Gerón]**|  Developer                        | 
-| **[Hari jaramillo Arellano]** |  Project manager                  |
-| **[Jessica]**                 |  Marketing Comunity Manager       | 
-| **[Brandon Linares Clderon]** |  Presentador                      | 
-| **[Miriam ]**                 |  Presentadora                      | 
+| Nombre                      | Rol                               | 
+|-----------------------------|-----------------------------------|
+| **Emmanuel Velásquez Gerón**|  Developer                        | 
+| **Hari jaramillo Arellano** |  Project manager                  |
+| **Jessica Castellanos**     |  Marketing Comunity Manager       | 
+| **Brandon Linares Clderon** |  Presentador                      | 
+| **Miriam**                  |  Presentadora                     | 
 
 
 ---
