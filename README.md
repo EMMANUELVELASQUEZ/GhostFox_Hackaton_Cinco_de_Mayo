@@ -77,12 +77,12 @@ Escríbeme: [Mi correo:](velasquezemmanuel87@gmail.com)
 
 ## 👊 Nuestro equipo
 
-| Nombre                                         | Rol                               | 
-|------------------------------------------------|-----------------------------------|
-| **Emmanuel Velásquez Gerón**                   |  Developer - Project manager      | 
-| **Hari jaramillo Arellano**                    |  Project manager                  |
-| **Brandon Linares Clderon**                    |  Presentador                      | 
-| **Miriam Citlali Ramírez Cuahtecontzi**        |  Marketing Comunity Manager       | 
+|    Nombre                                      |         Rol                              | 
+|------------------------------------------------|------------------------------------------|
+| **Emmanuel Velásquez Gerón**                   |  Developer - Project manager             | 
+| **Hari jaramillo Arellano**                    |  Marketing Comunity Manager              |
+| **Brandon Linares Clderon**                    |  Presentador - Marketing Comunity Manager| 
+| **Miriam Citlali Ramírez Cuahtecontzi**        |  Project manager                         | 
 
 
 ---
