@@ -79,11 +79,10 @@ Escríbeme: [Mi correo:](velasquezemmanuel87@gmail.com)
 
 | Nombre                                         | Rol                               | 
 |------------------------------------------------|-----------------------------------|
-| **Emmanuel Velásquez Gerón**                   |  Developer                        | 
+| **Emmanuel Velásquez Gerón**                   |  Developer - Project manager      | 
 | **Hari jaramillo Arellano**                    |  Project manager                  |
-| **Jessica Karina Castellanos Cruz**            |  Marketing Comunity Manager       | 
 | **Brandon Linares Clderon**                    |  Presentador                      | 
-| **Miriam Citlali Ramírez Cuahtecontzi**        |  Presentadora                     | 
+| **Miriam Citlali Ramírez Cuahtecontzi**        |  Marketing Comunity Manager       | 
 
 
 ---
